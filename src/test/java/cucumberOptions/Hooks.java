@@ -19,6 +19,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Hooks {
     // Run for many thread
     private static WebDriver driver;
+    private static String projectPath = GlobalConstants.getGlobalInstance().getProjectPath();
     private static final Logger log = Logger.getLogger(Hooks.class.getName());
 
     @Before // synchronized = handle đồng bộ
@@ -38,13 +39,13 @@ public class Hooks {
                     browser = System.getenv("BROWSER");
                     if (browser == null) {
                         // Set default browser
-                        browser = "firefox";
+                        browser = "chrome";
                     }
                 }
 
                 switch (browser) {
                     case "chrome":
-                        WebDriverManager.chromedriver().setup();
+                        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
                         driver = new ChromeDriver();
                         break;
                     case "hchrome":
@@ -55,7 +56,7 @@ public class Hooks {
                         driver = new ChromeDriver(chromeOptions);
                         break;
                     case "firefox":
-                        WebDriverManager.firefoxdriver().setup();
+                        System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
                         System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
                         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
                         driver = new FirefoxDriver();
@@ -89,7 +90,7 @@ public class Hooks {
                 Runtime.getRuntime().addShutdownHook(new Thread(new BrowserCleanup()));
             }
 
-            driver.get(GlobalConstants.BANK_GURU_URL);
+            driver.get(GlobalConstants.getGlobalInstance().getUserPageUrl());
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             log.info("------------- Started the browser -------------");
         }

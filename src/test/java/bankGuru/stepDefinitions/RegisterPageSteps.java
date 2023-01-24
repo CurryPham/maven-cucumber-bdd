@@ -1,40 +1,63 @@
 package bankGuru.stepDefinitions;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import pageObjects.user.nopCommerce.PageGeneratorManager;
+import pageObjects.user.nopCommerce.UserRegisterPageObject;
+import utilities.DataHelper;
 
 public class RegisterPageSteps {
     WebDriver driver;
-
+    static String firstName, lastName, email, password;
+    UserRegisterPageObject registerPage;
+    DataHelper dataTest;
 
     public RegisterPageSteps() {
         this.driver = Hooks.openAndQuitBrowser();
+        registerPage = PageGeneratorManager.getPageGeneratorManager().getUserRegisterPage(driver);
+        dataTest = DataHelper.getDataHelper();
+        firstName = dataTest.getFirstName();
+        lastName = dataTest.getLastName();
+        email = dataTest.getEmailAddress();
+        password = dataTest.getPassword();
     }
 
-    @When("^Input to Email textbox$")
+    @When("^Input to First name textbox$")
+    public void inputToFirstnameTextbox() {
+        registerPage.inputToFirstnameTextBox(firstName);
+    }
+
+    @And("^Input to Last name textbox$")
+    public void inputToLastnameTextbox() {
+        registerPage.inputToLastnameTextBox(lastName);
+    }
+    @And("^Input to Email textbox$")
     public void inputToEmailTextbox() {
-
-
+        registerPage.inputToEmailTextBox(email);
+    }
+    @And("^Input to Password textbox$")
+    public void inputToPasswordTextbox() {
+        registerPage.inputToPasswordTextBox(password);
+    }
+    @And("^Input to Confirm Password textbox$")
+    public void inputToConfirmPasswordTextbox() {
+        registerPage.inputToConfirmPasswordTextBox(password);
     }
 
-    @When("^Click to Submit$")
+    @And("^Click to Submit$")
     public void clickToSubmit() {
-
-
-    }
-
-    @Then("^Get User and password infor$")
-    public void getUserAndPasswordInfor() {
-
+        registerPage.clickToRegisterButton();
 
     }
 
-    @When("^Submit valid infor to login form$")
-    public void submitValidInforToLoginForm() {
-
+    @Then("^Verify Register success$")
+    public void getRegisterSuccessMessage() {
+        Assert.assertEquals(registerPage.getRegisterSuccessMessage(),"Your registration completed");
 
     }
 }
