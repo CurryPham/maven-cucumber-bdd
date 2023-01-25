@@ -45,7 +45,7 @@ public class Hooks {
 
                 switch (browser) {
                     case "chrome":
-                        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+                        WebDriverManager.chromedriver().setup();
                         driver = new ChromeDriver();
                         break;
                     case "hchrome":
