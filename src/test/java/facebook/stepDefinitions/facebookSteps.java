@@ -20,7 +20,7 @@ public class facebookSteps {
     @Before("@parameter")
 //    @Given("^Open facebook application$")
     public void openFacebookApplication()  {
-        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://www.facebook.com");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
