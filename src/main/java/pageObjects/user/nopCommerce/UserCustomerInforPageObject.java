@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 import io.qameta.allure.Step;
+import pageUls.nopCommerce.user.HomePageUI;
 
 public class UserCustomerInforPageObject extends BasePage {
 
@@ -15,8 +16,8 @@ public class UserCustomerInforPageObject extends BasePage {
 
 	@Step("Verify Login success")
 	public String getSuccessLogin() {
-		waitForElementVisible(driver, pageUIs.user.HomePageUI.MY_ACCOUNT_LINK);
-		return getElementText(driver, pageUIs.user.HomePageUI.MY_ACCOUNT_LINK);
+		waitForElementVisible(driver, HomePageUI.MY_ACCOUNT_LINK);
+		return getElementText(driver, HomePageUI.MY_ACCOUNT_LINK);
 	}
 
 }

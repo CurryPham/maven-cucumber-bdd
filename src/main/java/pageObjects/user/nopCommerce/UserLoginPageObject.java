@@ -2,6 +2,7 @@ package pageObjects.user.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 import commons.BasePage;
+import pageUls.nopCommerce.user.LoginPageUI;
 
 public class UserLoginPageObject extends BasePage {
 	WebDriver driver;
@@ -11,37 +12,37 @@ public class UserLoginPageObject extends BasePage {
 	}
 
 	public UserLoginPageObject clickToLoginLink() {
-		waitForElementClickable(driver, pageUIs.user.LoginPageUI.LOGIN_LINK);
-		clickToElement(driver, pageUIs.user.LoginPageUI.LOGIN_LINK);
+		waitForElementClickable(driver, LoginPageUI.LOGIN_LINK);
+		clickToElement(driver, LoginPageUI.LOGIN_LINK);
 		return new UserLoginPageObject(driver);
 	}
 
 	public String getIncorrectMessage() {
-		waitForElementVisible(driver, pageUIs.user.LoginPageUI.INCORRECT_MESSAGE);
-		return getElementText(driver, pageUIs.user.LoginPageUI.INCORRECT_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.INCORRECT_MESSAGE);
+		return getElementText(driver, LoginPageUI.INCORRECT_MESSAGE);
 	}
 
 	public String getErrorMessage() {
-		waitForElementVisible(driver, pageUIs.user.LoginPageUI.ERROR_MESSAGE);
-		return getElementText(driver, pageUIs.user.LoginPageUI.ERROR_MESSAGE);
+		waitForElementVisible(driver, LoginPageUI.ERROR_MESSAGE);
+		return getElementText(driver, LoginPageUI.ERROR_MESSAGE);
 	}
 
 	public void inputToEmailTextbox(String emailAdreess) {
-		waitForElementVisible(driver, pageUIs.user.LoginPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, pageUIs.user.LoginPageUI.EMAIL_TEXTBOX, emailAdreess);
+		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
+		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, emailAdreess);
 
 	}
 
 	public UserHomePageObject clickToLoginButton() {
-		waitForElementClickable(driver, pageUIs.user.LoginPageUI.LOGIN_BUTTON);
-		clickToElement(driver, pageUIs.user.LoginPageUI.LOGIN_BUTTON);
+		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
+		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
 		return new UserHomePageObject(driver);
 
 	}
 
 	public void inputToPasswordTextbox(String passWord) {
-		waitForElementVisible(driver, pageUIs.user.LoginPageUI.PASSWORD_TEXTBOX);
-		sendkeyToElement(driver, pageUIs.user.LoginPageUI.PASSWORD_TEXTBOX, passWord);
+		waitForElementVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
+		sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, passWord);
 
 	}
 

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json"},
         snippets = SnippetType.CAMELCASE,
-        tags = {"@register_login"})
+        tags = {"@customer"})
 
 
 public class BankGuruTestRunner {

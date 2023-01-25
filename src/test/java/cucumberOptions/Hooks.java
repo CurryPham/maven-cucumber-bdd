@@ -92,6 +92,7 @@ public class Hooks {
 
             driver.get(GlobalConstants.getGlobalInstance().getUserPageUrl());
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            driver.manage().window().maximize();
             log.info("------------- Started the browser -------------");
         }
         return driver;

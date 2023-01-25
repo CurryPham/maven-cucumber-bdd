@@ -1,4 +1,4 @@
-package pageUIs.user;
+package pageUls.nopCommerce.user;
 
 public class BasePageUI {
 	public static final String ADDRESS_LINK = "xpath=//div[@class='listbox']//a[text()='Addresses']";
@@ -8,6 +8,10 @@ public class BasePageUI {
 	public static final String LOGOUT_LINK_AT_USER = "xpath=//a[text()='Log out']";
 	public static final String LOGOUT_LINK_AT_ADMIN = "xpath=//a[text()='Logout']";
 	public static final String NAV_ICON = "xpath=//i[@class='fas fa-cogs']";
+	public static final String MESSAGE_SUCCESS = "xpath=//p[@class='content']";
+	public static final String DYNAMIC_MESSAGE_SUCCESS = "xpath=//a[@class='ico-account' and text()='%s']";
+	public static final String DYNAMIC_MESSAGE_SUCCESS_LINK = "xpath=//a[@class='ico-account' and text()='My account']";
+	public static final String DYNAMIC_LINK = "xpath=//div[@class='listbox']//a[text()='Customer info']";
 
 	public static final String DYNAMIC_PAGES_AT_MY_ACCOUNT_AREA = "xpath=//div[@class='listbox']//a[text()='%s']";
 	public static final String DYNAMIC_TEXTBOX_BY_ID = "xpath=//input[@id='%s']";
