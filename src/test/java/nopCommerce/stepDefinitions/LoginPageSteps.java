@@ -1,28 +1,27 @@
-package bankGuru.stepDefinitions;
+package nopCommerce.stepDefinitions;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
 import org.openqa.selenium.WebDriver;
 import pageObjects.user.nopCommerce.PageGeneratorManager;
-import pageObjects.user.nopCommerce.UserHomePageObject;
 import pageObjects.user.nopCommerce.UserLoginPageObject;
 
 public class LoginPageSteps {
 
     WebDriver driver;
-    String loginPageUrl;
     UserLoginPageObject loginPage;
+    TextContext textContext;
 
-    public LoginPageSteps() {
+    public LoginPageSteps(TextContext textContext) {
         this.driver = Hooks.openAndQuitBrowser();
+        this.textContext = textContext;
         loginPage = PageGeneratorManager.getPageGeneratorManager().getUserLoginPage(driver);
 
     }
     @Given("^Get Login Page Url$")
     public void getLoginPageUrl() {
-        loginPageUrl = loginPage.getPageUrl(driver);
+        textContext.getDataContext().setContext(Context.LOGIN_URL, loginPage.getPageUrl(driver));
     }
 
     @Given("^Open Login Page$")

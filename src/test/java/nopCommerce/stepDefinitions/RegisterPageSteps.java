@@ -1,7 +1,6 @@
-package bankGuru.stepDefinitions;
+package nopCommerce.stepDefinitions;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
@@ -16,9 +15,11 @@ public class RegisterPageSteps {
     static String firstName, lastName, email, password;
     UserRegisterPageObject registerPage;
     DataHelper dataTest;
+    TextContext textContext;
 
-    public RegisterPageSteps() {
+    public RegisterPageSteps(TextContext textContext) {
         this.driver = Hooks.openAndQuitBrowser();
+        this.textContext = textContext;
         registerPage = PageGeneratorManager.getPageGeneratorManager().getUserRegisterPage(driver);
         dataTest = DataHelper.getDataHelper();
         firstName = dataTest.getFirstName();

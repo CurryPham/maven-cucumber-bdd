@@ -1,5 +1,6 @@
 package facebook.stepDefinitions;
 
+import commons.GlobalConstants;
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -14,11 +15,12 @@ import java.util.concurrent.TimeUnit;
 
 public class facebookSteps {
     WebDriver driver;
+    private static String projectPath = GlobalConstants.getGlobalInstance().getProjectPath();
 
     @Before("@parameter")
 //    @Given("^Open facebook application$")
     public void openFacebookApplication()  {
-        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver", projectPath + "\\browserDrivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.facebook.com");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

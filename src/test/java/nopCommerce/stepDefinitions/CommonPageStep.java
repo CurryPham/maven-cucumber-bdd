@@ -1,4 +1,4 @@
-package bankGuru.stepDefinitions;
+package nopCommerce.stepDefinitions;
 
 import commons.CommonPageObject;
 import cucumber.api.java.en.Given;

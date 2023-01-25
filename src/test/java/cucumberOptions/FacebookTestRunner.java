@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         glue = "facebook.stepDefinitions",
         //dryRun = true,
         monochrome = true,
-        plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json"},
+        plugin = {"pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber_facebook.json"},
         snippets = SnippetType.CAMELCASE,
         tags = {"@parameter"})
 
