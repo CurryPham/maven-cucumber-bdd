@@ -4,8 +4,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
+import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import pageObjects.user.nopCommerce.PageGeneratorManager;
 import pageObjects.user.nopCommerce.UserRegisterPageObject;
 import utilities.DataHelper;
@@ -58,7 +58,7 @@ public class RegisterPageSteps {
 
     @Then("^Verify Register success$")
     public void getRegisterSuccessMessage() {
-        Assert.assertEquals(registerPage.getRegisterSuccessMessage(),"Your registration completed");
+        Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
 
     }
 }
