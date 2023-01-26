@@ -40,7 +40,7 @@ Feature:  Register/ Login and new Customer
     And Click to "Save" button
 
     #Message
-    Then Success message displayed with "The customer info has been updated successfully."
+    Then Success message displayed with "The customer info has been updated successfully...."
 
     #Text
 
