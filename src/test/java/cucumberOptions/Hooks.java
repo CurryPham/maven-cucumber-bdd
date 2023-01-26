@@ -65,11 +65,16 @@ public class Hooks {
                         break;
                     case "hfirefox":
                         WebDriverManager.firefoxdriver().setup();
-                        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-                        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
-                        FirefoxOptions firefoxOptions = new FirefoxOptions();
-                        firefoxOptions.setHeadless(true);
-                        driver = new FirefoxDriver(firefoxOptions);
+                        FirefoxOptions options = new FirefoxOptions();
+                        options.addArguments("--headless");
+                        options.addArguments("window-size=1920x1080");
+                        driver = new FirefoxDriver(options);
+//                        WebDriverManager.firefoxdriver().setup();
+//                        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+//                        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
+//                        FirefoxOptions firefoxOptions = new FirefoxOptions();
+//                        firefoxOptions.setHeadless(true);
+//                        driver = new FirefoxDriver(firefoxOptions);
                         break;
                     case "ie":
                         WebDriverManager.iedriver().arch32().setup();
