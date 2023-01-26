@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -56,7 +57,8 @@ public class Hooks {
                         driver = new ChromeDriver(chromeOptions);
                         break;
                     case "firefox":
-                        System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
+                        WebDriverManager.firefoxdriver().setup();
+                        //System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
                         System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
                         System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
                         driver = new FirefoxDriver();
@@ -72,6 +74,10 @@ public class Hooks {
                     case "ie":
                         WebDriverManager.iedriver().arch32().setup();
                         driver = new InternetExplorerDriver();
+                        break;
+                    case "edge":
+                        WebDriverManager.edgedriver().setup();
+                        driver = new EdgeDriver();
                         break;
                     default:
                         WebDriverManager.chromedriver().setup();
